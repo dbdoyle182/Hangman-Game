@@ -40,10 +40,12 @@ document.onkeyup = function(event) {
         guessesMade.push(userGuess);
         console.log(guessesMade);
     } else if (libraryChoice.indexOf(userGuess) >= 0) {
-        correct.push(userGuess)
+        correct.push(userGuess);
+        console.log(correct);
     } else if (libraryChoice.indexOf(userGuess) < 0) {
         incorrect.push(userGuess);
-        guessesLeft--
+        guessesLeft--;
+        console.log(incorrect)
     }
 
 
@@ -64,10 +66,10 @@ document.onkeyup = function(event) {
 
 // Creates the html for the game 
 var html = 
-"<h1> Hangman game </h1>"
-"<p> The letter you guessed: " + userGuess + "</p>"
-"<p> The word you are guessing is: " + hangmanWord + "</p>"
-"<p> The guesses you have made are: " + guessesMade + "</p>"
+"<h1> Hangman game </h1>" +
+"<p> The letter you guessed: " + userGuess + "</p>" +
+"<p> The word you are guessing is: " + hangmanWord + "</p>" +
+"<p> The guesses you have made are: " + guessesMade + "</p>" 
 document.querySelector("#game").innerHTML = html
     
 
