@@ -5,23 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>The Hangman Game</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/style.css">
 </head>
-<body>
-    <h1>Hangman Game!</h1>
-    <h4>Press space bar to get started!</h4>
-    <div id=game> 
-            
+<body class="bg">
+    <div class="container">
+    <div class="row bg-dark border border-danger rounded mb-3 mt-3">
+        <div class="col-md-12">
+            <h1 class="text-center text-info">Super Hangman!</h1>
+        </div>
+    </div>
+    <div class="mt-5 row">
+        <div class="col-md-6">
+            <img src="./images/SuperStar.png" alt="Superstar" class="border border-danger rounded">
+        </div>
+        <div id=game class="col-md-6 bg-light border border-danger rounded"> 
+        <h4>Press space bar to get started!</h4>  
         <p> The letter you guessed:</p>
         <p> The word you are guessing is:</p>
         <p> The  incorrect guesses you have made are:</p>
         <p> The number of guesses you have left:</p> 
         <p> User wins:</p>
         <p> User losses: </p>
+        </div>
 
-    
-    
-    
-    
+    </div>
+    <div class="row">
+        <div class="col-md-2"></div>
+
+        <div class="col-md-6 mt-3">
+            <img src="./images/MarioBanner.jpg" alt="Mario64-Bit" class="border border-danger rounded">
+        </div>
+
+    </div>
     </div>
     
 

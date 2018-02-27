@@ -7,6 +7,7 @@ var hangmanLibrary = ["superstar", "kingdom", "mushroom", "turtle", "powerup", "
 var alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 var correct = []
 var incorrect = []
+var lettersRemaining 
 
 // Pick a random word and fill an array function
 
@@ -17,7 +18,8 @@ console.log(libraryChoice);
 
 var hangmanWord = [];
 for (var i = 0; i < libraryChoice.length; i++) {
-hangmanWord[i] = "_"
+hangmanWord[i] = "_";
+lettersRemaining = hangmanWord.length
 console.log(hangmanWord);
 };
 
@@ -51,6 +53,7 @@ document.onkeyup = function(event) {
     for (j=0; j < libraryChoice.length; j++) {
     if (userGuess === libraryChoice[j]) {
         hangmanWord[j] = userGuess;
+        lettersRemaining--;
         console.log(hangmanWord);
     }
     
@@ -63,17 +66,22 @@ document.onkeyup = function(event) {
         libraryChoice = hangmanLibrary[Math.floor(Math.random()*hangmanLibrary.length)];
         hangmanWord = [];
         for (var i = 0; i < libraryChoice.length; i++) {
-        hangmanWord[i] = "_"
+        hangmanWord[i] = "_";
+        lettersRemaining = hangmanWord.length;
             }
         }
 
-        if (hangmanWord.toString() === libraryChoice.toString()) {
+        if (lettersRemaining === 0) {
             wins++;
+            alert("You're a Superstar!")
             startGame();
+            
         }
         if (guessesLeft === 0) {
             losses++;
+            alert("You lose, try again!")
             startGame();
+
         }
     
 

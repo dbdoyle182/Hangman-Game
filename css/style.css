@@ -1,0 +1,17 @@
+
+body, html {
+    height: 100%;
+}
+.bg { 
+    /* The image used */
+    background-image: url("http://www.tokkoro.com/picsup/2971388-mario-bros-video-games-8-bit-simple-background-retro-games-nintendo-entertainment-system-super-mario-bros____retro-vintage-wallpapers.jpg");
+
+    /* Full height */
+    height: 100%; 
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}                    
+                    
