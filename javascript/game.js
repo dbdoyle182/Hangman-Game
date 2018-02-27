@@ -4,24 +4,24 @@ var wins = 0;
 var losses = 0;
 var guessesLeft = 9;
 var hangmanLibrary = ["superstar", "kingdom", "mushroom", "turtle", "powerup", "coin"];
-var guessesMade = []
 var alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 var correct = []
 var incorrect = []
 
-// Pick a random word
+// Pick a random word and fill an array function
+
+
 
 var libraryChoice = hangmanLibrary[Math.floor(Math.random()*hangmanLibrary.length)];
 console.log(libraryChoice);
-
-
-// Creates an array with the word choice for length of word visual
 
 var hangmanWord = [];
 for (var i = 0; i < libraryChoice.length; i++) {
 hangmanWord[i] = "_"
 console.log(hangmanWord);
-}
+};
+
+
 
 
 
@@ -36,13 +36,11 @@ document.onkeyup = function(event) {
 
     // Checks to see if the guess is a valid character
 
-    if (alphabet.indexOf(userGuess >= 0) && guessesMade.indexOf(userGuess) < 0) {
-        guessesMade.push(userGuess);
-        console.log(guessesMade);
-    } else if (libraryChoice.indexOf(userGuess) >= 0) {
+    if (libraryChoice.indexOf(userGuess) >= 0) {
         correct.push(userGuess);
         console.log(correct);
-    } else if (libraryChoice.indexOf(userGuess) < 0) {
+    };
+    if (libraryChoice.indexOf(userGuess) < 0 && incorrect.indexOf(userGuess) < 0 && alphabet.indexOf(userGuess) >= 0) {
         incorrect.push(userGuess);
         guessesLeft--;
         console.log(incorrect)
@@ -54,22 +52,42 @@ document.onkeyup = function(event) {
     if (userGuess === libraryChoice[j]) {
         hangmanWord[j] = userGuess;
         console.log(hangmanWord);
-    } 
     }
+    
 
-
-    if (guessesLeft === 0) {
-        losses++;
+}
+    
+        function startGame () {
         guessesLeft = 9;
-        guessesMade = [];
-    }
+        incorrect = [];
+        libraryChoice = hangmanLibrary[Math.floor(Math.random()*hangmanLibrary.length)];
+        hangmanWord = [];
+        for (var i = 0; i < libraryChoice.length; i++) {
+        hangmanWord[i] = "_"
+            }
+        }
+
+        if (hangmanWord.toString() === libraryChoice.toString()) {
+            wins++;
+            startGame();
+        }
+        if (guessesLeft === 0) {
+            losses++;
+            startGame();
+        }
+    
+
+
+
 
 // Creates the html for the game 
 var html = 
-"<h1> Hangman game </h1>" +
 "<p> The letter you guessed: " + userGuess + "</p>" +
 "<p> The word you are guessing is: " + hangmanWord + "</p>" +
-"<p> The guesses you have made are: " + guessesMade + "</p>" 
+"<p> The  incorrect guesses you have made are: " + incorrect + "</p>" +
+"<p> The number of guesses you have left: " + guessesLeft + "</p>" +
+"<p> User wins: " + wins + "</p>" +
+"<p> User losses: " + losses + "</p>" 
 document.querySelector("#game").innerHTML = html
     
 
